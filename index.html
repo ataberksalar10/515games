@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>515Games | Five on Five</title>
+  <meta name="description" content="515Games — Five on Five. Play popular free web games in one clean, fast hub." />
+  <meta name="keywords" content="games, web games, free games, online games, poki style, five on five" />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background: radial-gradient(circle at 20% 0%, #0f1020, #090a12 60%);
+      color:#fff; text-align:center; overflow-x:hidden;
+    }
+    header{ padding:72px 20px 36px; }
+    .logo{
+      font-size: clamp(42px, 7vw, 72px);
+      font-weight:800; letter-spacing:3px; color:#00ffe7;
+      text-shadow:0 0 18px #00ffe7, 0 0 48px #00aaff;
+      transition:.35s;
+      animation:glow 2.2s ease-in-out infinite;
+    }
+    .logo:hover{ transform:scale(1.03) }
+    .subtext{ margin-top:10px; font-size:clamp(14px, 2.2vw, 18px); color:#9adfff; }
+    .topbar{
+      display:flex; gap:12px; justify-content:center; align-items:center; margin:20px auto 0; flex-wrap:wrap
+    }
+    .search{
+      width:min(720px,90vw); display:flex; gap:10px; margin:16px auto 0
+    }
+    .search input{
+      flex:1; padding:14px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06); color:#fff; outline:none
+    }
+    .search button,.pill{
+      padding:12px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.08); color:#e7faff; cursor:pointer
+    }
+    .pill{ font-size:14px }
+    .pill.active{ background:rgba(0,255,231,.12); border-color:rgba(0,255,231,.35) }
+    .games{
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:22px; padding:42px 22px; max-width:1180px; margin:0 auto;
+    }
+    .card{
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+      border-radius:18px; padding:14px; transition:.35s; cursor:pointer; backdrop-filter:blur(6px);
+    }
+    .card:hover{ transform:translateY(-8px); background:rgba(255,255,255,.1); box-shadow:0 0 24px rgba(0,255,231,.18) }
+    .card img{ width:100%; border-radius:12px; display:block }
+    .card h3{ margin-top:10px; font-size:16px; color:#00ffe7 }
+    footer{
+      border-top:1px solid rgba(255,255,255,.08);
+      padding:18px; color:#aab7c7; font-size:14px; background:rgba(0,0,0,.35)
+    }
+    footer span{ color:#00ffe7 }
+
+    @keyframes glow{
+      0%{ text-shadow:0 0 12px #00ffe7,0 0 28px #00aaff }
+      50%{ text-shadow:0 0 22px #00ffe7,0 0 58px #00aaff }
+      100%{ text-shadow:0 0 12px #00ffe7,0 0 28px #00aaff }
+    }
+    .hidden{ display:none }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">515GAMES</div>
+    <div class="subtext">FIVE ON FIVE</div>
+
+    <div class="topbar">
+      <button class="pill active" data-lang="en" id="btn-en">EN</button>
+      <button class="pill" data-lang="tr" id="btn-tr">TR</button>
+    </div>
+
+    <form class="search" onsubmit="return false;">
+      <input id="q" type="text" placeholder="Search games (e.g., Subway, Car, Runner) / Oyun ara..." />
+      <button id="clearBtn" type="button">Clear</button>
+    </form>
+  </header>
+
+  <main class="games" id="grid">
+    <!-- Sample game cards -->
+    <a href="https://poki.com/en/g/subway-surfers" target="_blank" class="card" data-title="Subway Surfers" data-tags="runner endless">
+      <img src="https://images.crazygames.com/games/subway-surfers/cover-1656419318077.jpg" alt="Subway Surfers" />
+      <h3>Subway Surfers</h3>
+    </a>
+
+    <a href="https://poki.com/en/g/drive-mad" target="_blank" class="card" data-title="Drive Mad" data-tags="cars skill">
+      <img src="https://images.crazygames.com/games/drive-mad/cover-1669309432334.jpg" alt="Drive Mad" />
+      <h3>Drive Mad</h3>
+    </a>
+
+    <a href="https://poki.com/en/g/doodle-jump" target="_blank" class="card" data-title="Doodle Jump" data-tags="arcade casual">
+      <img src="https://images.crazygames.com/games/doodle-jump/cover-1656419325083.jpg" alt="Doodle Jump" />
+      <h3>Doodle Jump</h3>
+    </a>
+
+    <a href="https://poki.com/en/g/temple-run-2" target="_blank" class="card" data-title="Temple Run 2" data-tags="runner action">
+      <img src="https://images.crazygames.com/games/temple-run-2/cover-1656419348259.jpg" alt="Temple Run 2" />
+      <h3>Temple Run 2</h3>
+    </a>
+
+    <a href="https://poki.com/en/g/smash-karts" target="_blank" class="card" data-title="Smash Karts" data-tags="multiplayer kart">
+      <img src="https://images.crazygames.com/games/smash-karts/cover-1679409775812.jpg" alt="Smash Karts" />
+      <h3>Smash Karts</h3>
+    </a>
+
+    <a href="https://poki.com/en/g/getaway-shootout" target="_blank" class="card" data-title="Getaway Shootout" data-tags="multiplayer action">
+      <img src="https://images.crazygames.com/games/getaway-shootout/cover-1656419388278.jpg" alt="Getaway Shootout" />
+      <h3>Getaway Shootout</h3>
+    </a>
+  </main>
+
+  <footer>
+    © 2025 <span>515Games</span> — Five on Five. Built by Ataberk Salar 🚀
+  </footer>
+
+  <script>
+    // Simple search filter (EN/TR)
+    const q = document.getElementById('q');
+    const clearBtn = document.getElementById('clearBtn');
+    const cards = Array.from(document.querySelectorAll('.card'));
+    q.addEventListener('input', () => {
+      const term = q.value.trim().toLowerCase();
+      cards.forEach(c => {
+        const text = (c.dataset.title + ' ' + c.dataset.tags).toLowerCase();
+        c.style.display = text.includes(term) ? '' : 'none';
+      });
+    });
+    clearBtn.addEventListener('click', () => { q.value=''; q.dispatchEvent(new Event('input')); });
+
+    // Language toggle (just switches static labels/placeholders)
+    const btnEN = document.getElementById('btn-en');
+    const btnTR = document.getElementById('btn-tr');
+    function setLang(lang){
+      if(lang==='tr'){
+        document.documentElement.lang='tr';
+        document.title='515Games | Five on Five';
+        document.querySelector('.subtext').textContent='FIVE ON FIVE';
+        q.placeholder='Oyun ara (örn: Subway, Araba, Koşu)...';
+        btnTR.classList.add('active'); btnEN.classList.remove('active');
+      }else{
+        document.documentElement.lang='en';
+        document.title='515Games | Five on Five';
+        document.querySelector('.subtext').textContent='FIVE ON FIVE';
+        q.placeholder='Search games (e.g., Subway, Car, Runner)...';
+        btnEN.classList.add('active'); btnTR.classList.remove('active');
+      }
+    }
+    btnEN.addEventListener('click',()=>setLang('en'));
+    btnTR.addEventListener('click',()=>setLang('tr'));
+  </script>
+</body>
+</html>
